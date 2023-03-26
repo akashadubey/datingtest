@@ -1,2 +1,4 @@
-yarn install /n
+yarn install 
+
+
 yarn run

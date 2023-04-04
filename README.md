@@ -1,4 +1,1 @@
-yarn install 
 
-
-yarn run

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
+import { LinearGradient } from 'expo-linear-gradient';
 const backImage = require("../assets/backImage.png");
 
 export default function Signup({ navigation }) {
@@ -18,12 +19,18 @@ const onHandleSignup = () => {
   };
   
   return (
-    <View style={styles.container}>
-      <Image source={backImage} style={styles.backImage} />
+    <View style={styles.container}>   
+      <LinearGradient
+          colors={['rgba(246,197,4,1)', 'rgba(246,140,4,1)']}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 1, y: 0.5}}
+          style={styles.linearGradient}
+        >
+      </LinearGradient> 
       <View style={styles.whiteSheet} />
       <SafeAreaView style={styles.form}>
         <Text style={styles.title}>Sign Up</Text>
-         <TextInput
+        <TextInput
         style={styles.input}
         placeholder="Enter email"
         autoCapitalize="none"
@@ -43,9 +50,17 @@ const onHandleSignup = () => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <TouchableOpacity style={styles.button} onPress={onHandleSignup}>
-        <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Sign Up</Text>
-      </TouchableOpacity>
+      <LinearGradient
+          colors={['rgba(246,197,4,1)', 'rgba(246,140,4,1)']}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 1, y: 0.5}}
+          style={styles.linearGradient_signup}
+        >
+          <TouchableOpacity style={styles.button_signup} onPress={onHandleSignup}>
+            <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Sign Up</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+      
       <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
         <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Don't have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
@@ -60,7 +75,7 @@ const onHandleSignup = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "blue",
   },
   title: {
     fontSize: 36,
@@ -91,6 +106,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: '#fff',
     borderTopLeftRadius: 60,
+  },
+  linearGradient: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '75%',
+    position: "absolute",
+  },
+  linearGradient_signup: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 58,
+    marginTop: 40,
+    borderRadius: 10,
   },
   form: {
     flex: 1,

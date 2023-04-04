@@ -2,8 +2,8 @@ import 'dotenv/config';
 
 export default {
   "expo": {
-    "name": "ChatApp",
-    "slug": "ChatApp",
+    "name": "DatingTest",
+    "slug": "DatingTest",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
